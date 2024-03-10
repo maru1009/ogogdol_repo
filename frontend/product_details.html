@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="product_details.css">
+</head>
+<body>
+    <div class="header">
+      <div class="container">
+        <div class="navbar">
+          <div class="logo">
+            <a href="home.html"><span>AST</span></a>
+          </div>
+          <nav>
+            <ul id="MenuItems">
+              <li><a href="home.html">Home</a></li>
+              <li><a href="product.html">Products</a></li>
+              <li><a href="my_profile.html">About</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="login.html">Account</a></li>
+            </ul>
+          </nav>
+          <a href="cart.html"><img src="https://i.ibb.co/PNjjx3y/cart.png" alt="" width="30px" height="30px"/></a>
+          <img src="https://i.ibb.co/6XbqwjD/menu.png" alt=""  class="menu-icon" onclick="menutoggle()" />
+        </div>
+      </div>
+    </div>
+    <!-- Product form -->
+    <div class="single-product">
+      <img src="https://i.ibb.co/dWK8Fcw/computer1.png" alt="computer1">
+      <div class="info">
+          <h4>Бүтээгдэхүүний нэр</h4>
+          <h3>Бүтээгдэхүүний талаарх мэдээлэл</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, tempore!</p>
+          <h2>Размераа сонгоно уу</h2>
+          <select id="size">
+              <option>Select Size</option>
+              <option>XXS</option>
+              <option>XS</option>
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+              <option>XL</option>
+              <option>XXL</option>
+          </select>
+          <span>Тоо ширхэг: %d</span>
+          <input type="number" id="quantity" value="1">
+          <a href="cart.html" class="btn" onclick="addToCart()">Add to Cart</a>
+          
+      </div>
+  </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          
+          <div class="footer-col-1">
+            <h3>Download Our App</h3>
+            <p>Download App for Android and iso mobile phone.</p>
+            <div class="app-logo">
+              <img src="https://i.ibb.co/KbPTYYQ/play-store.png" alt="" />
+              <img src="https://i.ibb.co/hVM4X2p/app-store.png" alt="" />
+            </div>
+          </div>
+
+          <div class="footer-col-2">
+            <h3>Useful Links</h3>
+            <ul>
+              <li>Coupons</li>
+              <li>Blog Post</li>
+              <li>Return Policy</li>
+              <li>Join Affiliate</li>
+            </ul>
+          </div>
+    
+          <div class="footer-col-3">
+            <h3>Follow us</h3>
+            <ul>
+              <li>Facebook</li>
+              <li>Twitter</li>
+              <li>Instagram</li>
+              <li>YouTube</li>
+            </ul>
+          </div>
+
+        </div>
+        <hr />
+        <p class="copyright">Copyright &copy; 2021 - Apes Strong Together</p>
+      </div>
+    </div>
+    
+    <!-- js for toggle menu -->
+    <script src="product.js"></script>
+    <script src="menu.js"></script>
+</body>
+</html>
