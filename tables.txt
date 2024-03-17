@@ -1,0 +1,94 @@
+CREATE TABLE customer ( /done/
+    Cus_ID INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    Cus_Name VARCHAR(50) NOT NULL,
+    Cus_email VARCHAR(100) NOT NULL,
+    Cus_pass VARCHAR(100) NOT NULL
+); 
+
+CREATE TABLE Product ( /done/
+    Prod_ID INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    Prod_Name VARCHAR(100) NOT NULL,
+    Prod_description TEXT,
+    Prod_image VARCHAR(255),
+    Prod_rating DECIMAL(3, 2),
+    Prod_reviews INT,
+    Prod_quan INT DEFAULT 0,
+    Prod_Cost DECIMAL(10, 2) NOT NULL,
+    Cat_ID INT,
+    FOREIGN KEY (Cat_ID) REFERENCES category(Cat_ID)
+); 
+
+CREATE TABLE category ( /done/
+    Cat_ID INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    Cat_name VARCHAR(50) NOT NULL,
+    Parent_Cat_ID INT,
+    FOREIGN KEY (Parent_Cat_ID) REFERENCES category(Cat_ID)
+); 
+
+CREATE TABLE Orders ( /done/
+    Ord_ID INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    Ord_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    total_price DECIMAL(10, 2),
+    Cus_ID INT,
+    Pay_ID INT,
+    Status VARCHAR(20),
+    FOREIGN KEY (Cus_ID) REFERENCES customer(Cus_ID),
+    FOREIGN KEY (Pay_ID) REFERENCES Payment(Pay_ID)
+);
+
+
+
+
+CREATE TABLE Order_Item ( /done/
+    Item_id INT PRIMARY KEY AUTO_INCREMENT,
+    Ord_ID INT,
+    Prod_ID INT,
+    Item_quan INT DEFAULT 0,
+    Item_price DECIMAL(7, 2) NOT NULL,
+    FOREIGN KEY (Ord_ID) REFERENCES `Orders`(Ord_ID),
+    FOREIGN KEY (Prod_ID) REFERENCES Product(Prod_ID)
+);
+
+CREATE TABLE Payment ( /done/
+    Pay_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Pay_date DATETIME,
+    Pay_method VARCHAR(10) NOT NULL,
+    Pay_amount DECIMAL(10, 2) NOT NULL,
+    Pay_status VARCHAR(20)
+);
+
+CREATE TABLE shipment ( /done/
+    ship_id INT PRIMARY KEY AUTO_INCREMENT,
+    ship_addr VARCHAR(100) NOT NULL,
+    Cus_contact VARCHAR(25) NOT NULL,
+    ship_method VARCHAR(50),
+    ship_tracking_num VARCHAR(50),
+    ship_est_delivery_date DATE,
+    prod_id INT,
+    Cus_id INT,
+    FOREIGN KEY (prod_id) REFERENCES Product(Prod_ID),
+    FOREIGN KEY (Cus_id) REFERENCES customer(Cus_ID)
+);
+
+
+CREATE TABLE Cart ( /done/
+    Cart_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Cus_ID INT,
+    Prod_ID INT,
+    Quantity INT,
+    FOREIGN KEY (Cus_ID) REFERENCES customer(Cus_ID),
+    FOREIGN KEY (Prod_ID) REFERENCES Product(Prod_ID)
+);
+
+CREATE TABLE Order_History ( /done/
+    Order_Hist_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Order_ID INT,
+    Cus_ID INT,
+    Prod_ID INT,
+    Order_date DATE,
+    Total_price DECIMAL(10, 2),
+    Status VARCHAR(20),
+    FOREIGN KEY (Order_ID) REFERENCES `Orders`(Ord_ID),
+    FOREIGN KEY (Cus_ID) REFERENCES customer(Cus_ID),
+    FOREIGN KEY (Prod_ID) REFERENCES Product(Prod_ID)
+);
