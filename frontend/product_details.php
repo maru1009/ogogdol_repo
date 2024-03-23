@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="product_details.css">
+    <link rel="stylesheet" href="css/product_details.css">
 </head>
 <body>
   <?php require_once 'assets/header.php'?>
@@ -37,7 +36,7 @@
     <?php require_once 'assets/footer.php'?>
     
     <!-- js for toggle menu -->
-    <script src="product.js"></script>
-    <script src="menu.js"></script>
+    <script src="js/product.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 </html>
