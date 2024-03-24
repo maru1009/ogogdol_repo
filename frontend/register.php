@@ -1,3 +1,12 @@
+<?php
+
+// handsan huudas ruu ni redirect hiideg bolgomoor bn 
+if(isset($_SESSION['id']))
+{
+// turdee index ruu butsaay
+  header('Location : index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

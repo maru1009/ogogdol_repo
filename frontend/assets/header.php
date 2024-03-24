@@ -1,3 +1,6 @@
+<?php
+session_start()
+?>
 <style>
   * {
     margin: 0;
@@ -98,9 +101,18 @@
           <ul id="MenuItems">
             <li><a href="index.php">Home</a></li>
             <li><a href="product.php">Products</a></li>
-            <li><a href="my_profile.php">About</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="login.php">Account</a></li>
+              <?php 
+              if(isset($_SESSION['id']))
+              {
+                echo "<li><a href='my_profile.php'>Profile</a></li>";
+                echo "<li><a href='../process/logout.php'>Logout</a></li>";
+              }
+              else{
+                echo"<li><a href='login.php'>Login</a></li>";
+              }
+            ?>
+            <!-- <li><a href="#">Contact</a></li> -->
+            <!-- <li><a href="login.php">Account</a></li> -->
           </ul>
         </nav>
         <a href="cart.php"><img src="https://i.ibb.co/PNjjx3y/cart.png" alt="" width="30px" height="30px"/></a>
