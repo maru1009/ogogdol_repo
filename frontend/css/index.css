@@ -1,3 +1,5 @@
+
+
 .small-container {
   max-width: 1080px;
   margin: auto;
@@ -26,9 +28,10 @@
   margin: 0 auto 80px;
   position: relative;
   line-height: 60px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: #555;
-
 }
+
 .title::after {
   content: "";
   background: #ff523b;
@@ -46,6 +49,7 @@
 h4 {
   color: #555;
   font-weight: normal;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .col-3 p {

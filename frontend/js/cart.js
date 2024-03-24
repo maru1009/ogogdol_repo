@@ -42,6 +42,5 @@ function addToCart(productName, productPrice) {
     totalSpan.textContent = total.toFixed(2);
 }
 
-// Example usage
 addToCart('Product Name 1', '10.00');
 addToCart('Product Name 2', '20.00');

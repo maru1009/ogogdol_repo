@@ -28,7 +28,6 @@
           <span>Тоо ширхэг: %d</span>
           <input type="number" id="quantity" value="1">
           <a href="cart.php" class="btn" onclick="addToCart()">Add to Cart</a>
-          
       </div>
   </div>
     

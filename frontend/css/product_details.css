@@ -68,3 +68,10 @@ input:focus {
   transform: scale(1.1);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
+@media only screen and (max-width: 1000px) {
+  .single-product{ 
+    gap: 20px;
+
+  }
+}

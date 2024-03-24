@@ -4,9 +4,17 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+
+  @font-face {
+    font-family: "Tauri", sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tauri&family=Wix+Madefor+Text:ital,wght@0,400..800;1,400..800&display=swap');
+  }
+
+
   body {
-    font-family: "Poppins", sans-serif;
+    font-family: "Tauri", sans-serif;
+    font-weight: 400;
+    font-style: normal;
   }
   
   a {
@@ -50,7 +58,7 @@
   }
   
   .header {
-    background: #faebd7;
+    background: #FBEEC1;
     width: 100%;
   }
   
