@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "conn.php";
+include __DIR__ . "/../libs/validators.php";
 
 if (isset($_POST['email'], $_POST['password'])) {
     $email = validate($_POST['email']);
@@ -44,13 +45,7 @@ if (isset($_POST['email'], $_POST['password'])) {
     redirectToLoginPage("Invalid request");
 }
 
-function validate($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
+
 
 function redirectToLoginPage($error)
 {
