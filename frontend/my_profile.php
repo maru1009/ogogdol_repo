@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['id'])) {
-    // Redirect to login page or display an error message
+  
     header("Location: login.php");
     exit;
 }
