@@ -11,94 +11,94 @@
   
   <!-- Featured products -->
   <div class="small-container">
-    <h2 class="title">Featured Products</h2>
+    <h2 class="title">Онцлох бүтээгдэхүүн</h2>
     <div class="row">
       <div class="col-3">
-        <a href="product_details.php"><img src="https://i.ibb.co/dWK8Fcw/computer1.png" alt="computer1" >
-          <h4>Computer</h4>
-        <p>500.00</p>
+        <a href="product_details.php"><img src="images/1.webp" alt="computer1" >
+          <h4>Sky </h4>
+        
         </a>
       </div>
   
       <div class="col-3">
-        <a href="product_details.php"><img src="https://i.ibb.co/dWK8Fcw/computer1.png" alt="computer1" >
+        <a href="product_details.php"><img src="images/2.webp" alt="computer1" >
           <h4>Computer</h4>
-        <p>500.00</p>
+        
         </a>
       </div>
   
       <div class="col-3">
-        <a href="product_details.php"><img src="https://i.ibb.co/dWK8Fcw/computer1.png" alt="computer1" >
+        <a href="product_details.php"><img src="images/3.webp" alt="computer1" >
           <h4>Computer</h4>
-        <p>500.00</p>
+        
         </a>
       </div>
   
       <div class="col-3">
-        <a href="product_details.php"><img src="https://i.ibb.co/dWK8Fcw/computer1.png" alt="computer1" >
+        <a href="product_details.php"><img src="images/4.webp" alt="computer1" >
           <h4>Computer</h4>
-        <p>500.00</p>
+        
         </a>
       </div>
     </div>
     <!-- Latest products-->
-    <h2 class="title">Latest Products</h2>
+    <h2 class="title">Сүүлийн үеийн загвар</h2>
     <div class="row">
       <div class="col-3">
-        <a href="product_details.php"><img src="https://i.ibb.co/dWK8Fcw/computer1.png" alt="computer1" >
+        <a href="product_details.php"><img src="images/5.webp" alt="computer1" >
           <h4>Computer</h4>
-        <p>500.00</p>
+        
         </a>
       </div>
   
       <div class="col-3">
-        <a href="product_details.php"><img src="https://i.ibb.co/dWK8Fcw/computer1.png" alt="computer1" >
+        <a href="product_details.php"><img src="images/1.webp" alt="computer1" >
           <h4>Computer</h4>
-        <p>500.00</p>
+        
         </a>
       </div>
   
       <div class="col-3">
-        <a href="product_details.php"><img src="https://i.ibb.co/dWK8Fcw/computer1.png" alt="computer1" >
+        <a href="product_details.php"><img src="images/2.webp" alt="computer1" >
           <h4>Computer</h4>
-        <p>500.00</p>
+        
         </a>
       </div>
   
       <div class="col-3">
-        <a href="product_details.php"><img src="https://i.ibb.co/dWK8Fcw/computer1.png" alt="computer1" >
+        <a href="product_details.php"><img src="images/3.webp" alt="computer1" >
           <h4>Computer</h4>
-        <p>500.00</p>
+        
         </a>
       </div>
     </div>
   
     <div class="row">
       <div class="col-3">
-        <a href="product_details.php"><img src="https://i.ibb.co/dWK8Fcw/computer1.png" alt="computer1" >
+        <a href="product_details.php"><img src="images/4.webp" alt="computer1" >
           <h4>Computer</h4>
-        <p>500.00</p>
+        
         </a>
       </div>
   
       <div class="col-3">
-        <a href="product_details.php"><img src="https://i.ibb.co/dWK8Fcw/computer1.png" alt="computer1" >
+        <a href="product_details.php"><img src="images/5.webp" alt="computer1" >
           <h4>Computer</h4>
-        <p>500.00</p>
+        
         </a>
       </div>
   
       <div class="col-3">
-        <a href="product_details.php"><img src="https://i.ibb.co/dWK8Fcw/computer1.png" alt="computer1" >
+        <a href="product_details.php"><img src="images/1.webp" alt="computer1" >
           <h4>Computer</h4>
-        <p>500.00</p>
+        
         </a>
       </div>
   
       <div class="col-3">
-        <a href="product_details.php"><img src="https://i.ibb.co/dWK8Fcw/computer1.png" alt="computer1" >
+        <a href="product_details.php"><img src="images/2.webp" alt="computer1" >
           <h4>Computer</h4>
-        <p>500.00</p>
+        
         </a>
       </div>
     </div>

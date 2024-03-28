@@ -61,8 +61,9 @@ session_start()
   }
   
   .header {
-    background: #FBEEC1;
+    background: #white;
     width: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
   
   .logo span{ 
@@ -95,12 +96,12 @@ session_start()
     <div class="container">
       <div class="navbar">
         <div class="logo">
-          <a href="index.php"><span>AST</span></a>
+          <a href="index.php"><span>Лого</span></a>
         </div>
         <nav>
           <ul id="MenuItems">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="product.php">Products</a></li>
+            <li><a href="index.php">Эхлэл</a></li>
+            <li><a href="product.php">Бүтээгдэхүүн</a></li>
               <?php 
               if(isset($_SESSION['id']))
               {
@@ -108,7 +109,7 @@ session_start()
                 echo "<li><a href='../process/logout.php'>Logout</a></li>";
               }
               else{
-                echo"<li><a href='login.php'>Login</a></li>";
+                echo"<li><a href='login.php'>Нэвтрэх</a></li>";
               }
             ?>
             <!-- <li><a href="#">Contact</a></li> -->
