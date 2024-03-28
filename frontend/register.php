@@ -3,8 +3,8 @@
 // handsan huudas ruu ni redirect hiideg bolgomoor bn 
 if(isset($_SESSION['id']))
 {
-// turdee index ruu butsaay
-  header('Location : index.php');
+    // turdee index ruu butsaay
+    header('Location: index.php');
 }
 ?>
 <!DOCTYPE html>
@@ -24,6 +24,15 @@ if(isset($_SESSION['id']))
       <form id="registerForm" action="process/reg_pro.php" method="POSt">
         <h2>Register</h2>
         <hr/>
+        <?php if (isset($_SESSION['errors'])): ?>
+        <div class="form-errors">
+        <?php foreach($_SESSION['errors'] as $error): ?>
+            <p><?php echo $error ?></p>
+        <?php endforeach; ?>
+       </div>
+       <!-- $_SESSION['errors']=null; -->
+      <?php endif; ?>
+
         <div class="names">
           <input type="text" placeholder="First name" required name="uname">
           <input type="text" placeholder="Last name" required name="lname">
@@ -35,16 +44,3 @@ if(isset($_SESSION['id']))
         <button type="submit" class="btn">Register</button>
         <div class="button">
           <a href="login.php">Already have an account?</a>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <?php require_once 'assets/footer.php'?>
-  
-  <!-- js for toggle menu -->
-<script src="menu.js"></script>
-<script src="error_pass.js"></script>
-</body>
-</html>

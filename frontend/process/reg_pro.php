@@ -1,69 +1,70 @@
+
+To append errors to the $_SESSION['errors'] array, you can modify your code as follows:
+
+php
+Copy code
 <?php
 session_start();
 include "conn.php";
 include __DIR__ . "/../libs/validators.php";
-if($_SERVER["REQUEST_METHOD"]=="POST")
-{
 
+// Initialize errors array
+$_SESSION['errors'] = array();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // validating firstname
-    if(empty($_POST["uname"]))
-    {
-        header("Location: ../reg.php?error=First name is empty");
-    }
-    else{
-        if(validate_name($_POST['uname']))
-        {
-        $uname=validate($_POST['uname']);
-        }
-        else{
-            header("Location: ../reg.php?error=Not name type");
+    if (empty($_POST["uname"])) {
+        $_SESSION['errors'][] = "First name is empty";
+    } else {
+        if (!validate_name($_POST['uname'])) {
+            $_SESSION['errors'][] = "First name is not valid";
         }
     }
 
     // validating lastname
-    if(empty($_POST["lname"]))
-    {
-        header("Location: ../reg.php?error=Last name is empty");
-    }
-    else{
-        if(validate_name($_POST['lname']))
-        {
-        $lname=validate($_POST['lname']);
-        }
-        else{
-            header("Location: ../reg.php?error=Not name type");
+    if (empty($_POST["lname"])) {
+        $_SESSION['errors'][] = "Last name is empty";
+    } else {
+        if (!validate_name($_POST['lname'])) {
+            $_SESSION['errors'][] = "Last name is not valid";
         }
     }
 
     // validating password
-    if(empty($_POST["password"]))
-    {
-        header("Location: ../reg.php?error=Password is empty");
-    }
-    else{
-        if(password_validate($_POST['password']))
-        {
-        $pass=validate($_POST['password']);
-        }
-        else{
-            header("Location: ../reg.php?error=Not strong password");
+    if (empty($_POST["password"])) {
+        $_SESSION['errors'][] = "Password is empty";
+    } else {
+        if (!password_validate($_POST['password'])) {
+            $_SESSION['errors'][] = "Password is not strong";
         }
     }
 
     //validating email
-    if(empty($_POST["email"]))
-    {
-        header("Location: ../reg.php?error=Email is empty");
-    }
-    else{
-        if(validate_email($_POST['email']))
-        {
-        $email=validate($_POST['email']);
-        }
-        else{
-            header("Location: ../reg.php?error=Is not email");
+    if (empty($_POST["email"])) {
+        $_SESSION['errors'][] = "Email is empty";
+    } else {
+        if (!validate_email($_POST['email'])) {
+            $_SESSION['errors'][] = "Email is not valid";
         }
     }
+
+    // If there are errors, redirect back to register.php with error messages
+    if (!empty($_SESSION['errors'])) {
+        header("Location: ../register.php");
+        exit();
+    }
+
+    // If no errors, proceed with registration
+    $uname = validate($_POST['uname']);
+    $lname = validate($_POST['lname']);
+    $pass = validate($_POST['password']);
+    $email = validate($_POST['email']);
+
+    // If no errors, proceed with registration
+    $uname = validate($_POST['uname']);
+    $lname = validate($_POST['lname']);
+    $pass = validate($_POST['password']);
+    $email = validate($_POST['email']);
 
 //  Query
     if (isset($uname) && isset($lname) && isset($pass) && isset($email)) {
@@ -80,8 +81,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             $result = mysqli_stmt_get_result($stmt_check);
             // Checking if it is already registered
             if (mysqli_num_rows($result) > 0) {
-                header("Location: reg.php?error=User already exists");
-                exit();
+                // header("Location: ../register.php?error=User already exists");
+                $_SESSION['errors'][] = "Email is not valid";
+                if (!empty($_SESSION['errors'])) {
+                    header("Location: ../register.php");
+                    exit();
+                }
             } else {
                 
             
@@ -102,7 +107,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                     header('location: ../login.php');
                     exit();
                 } else {
-                    header("Location: reg.php?error=Error executing SQL query");
+                    header("Location: register.php?error=Error executing SQL query");
                     exit();
                 }
             }
@@ -111,7 +116,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     
 else 
 {
-    header("Location: reg.php?error=Invalid request");
+    header("Location: register.php?error=Invalid request");
      exit();
 }
 
