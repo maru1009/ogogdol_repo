@@ -44,7 +44,7 @@ if(isset($_SESSION['id']))
   <?php require_once 'assets/footer.php'?>
   
   <!-- js for toggle menu -->
-<script src="menu.js"></script>
-<script src="error_pass.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/error_pass.js"></script>
 </body>
 </html>

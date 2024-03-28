@@ -31,6 +31,7 @@ session_start()
   
   
   /* Header starts*/
+
   .navbar {
     display: flex;
     align-items: center;
@@ -61,14 +62,17 @@ session_start()
   }
   
   .header {
-    background: #FBEEC1;
+    background: white;
     width: 100%;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    z-index: 1;
+    top: 0;
   }
   
-  .logo span{ 
-    font-size: 20px;
-    color: black;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  .logo img{ 
+    width: 60px;
+    margin: -10px;
   }
   
   .menu-icon {
@@ -95,7 +99,7 @@ session_start()
     <div class="container">
       <div class="navbar">
         <div class="logo">
-          <a href="index.php"><span>AST</span></a>
+          <a href="index.php"><img src="/images/logo.svg" alt=""></a>
         </div>
         <nav>
           <ul id="MenuItems">

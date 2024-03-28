@@ -5,6 +5,7 @@
     justify-content: center;
     margin-bottom: 20px;
     gap: 300px;
+    margin-top: 100px;
 }
 
 .button-container {
@@ -111,6 +112,24 @@ input[type="file"] {
 
 .hidden{ 
     display: none;
+}
+
+
+.check-button {
+    padding: 10px 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+.check-button:hover {
+    background-color: #218838;
 }
 
 @media only screen and (max-width: 950px) {
