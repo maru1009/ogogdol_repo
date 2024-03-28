@@ -1,12 +1,7 @@
 <style>
 
-<<<<<<< HEAD
 .container-footer {
-  background: white;
-=======
-.container-footer{ 
   background: #F7F7F7;
->>>>>>> bc3bc8a3dae1f816260a03e9aeff799ea4a8a0f2
   color: #8a8a8a;
   font-size: 14px;
   padding: 60px 0 20px;

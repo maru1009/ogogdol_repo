@@ -62,18 +62,12 @@ session_start()
   }
   
   .header {
-<<<<<<< HEAD
-    background: #white;
-    width: 100%;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-=======
     background: white;
     width: 100%;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     position: fixed;
-    z-index: 1;
     top: 0;
->>>>>>> bc3bc8a3dae1f816260a03e9aeff799ea4a8a0f2
+    z-index: 1;
   }
   
   .logo img{ 
@@ -105,11 +99,7 @@ session_start()
     <div class="container">
       <div class="navbar">
         <div class="logo">
-<<<<<<< HEAD
-          <a href="index.php"><span>Лого</span></a>
-=======
           <a href="index.php"><img src="/images/logo.svg" alt=""></a>
->>>>>>> bc3bc8a3dae1f816260a03e9aeff799ea4a8a0f2
         </div>
         <nav>
           <ul id="MenuItems">

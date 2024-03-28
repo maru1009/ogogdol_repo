@@ -2,20 +2,16 @@
   display: flex;
   margin: 20px 0;
   justify-content: center;
-  gap:350px;
+  gap:250px;
   height: 600px;
   align-items: center;
   margin-top: 40px;
 }
 
-<<<<<<< HEAD
-=======
-.single-product img {
-  width: 300px;
-  height: 300px;
-  margin-left: 50px;
+.single-product img{ 
+    width: 500px;
+    margin-left: 100px;
 }
->>>>>>> bc3bc8a3dae1f816260a03e9aeff799ea4a8a0f2
 
 .single-product h4 {
   margin: 20px 0;
