@@ -1,8 +1,8 @@
 
-To append errors to the $_SESSION['errors'] array, you can modify your code as follows:
+<!-- To append errors to the $_SESSION['errors'] array, you can modify your code as follows:
 
 php
-Copy code
+Copy code -->
 <?php
 session_start();
 include "conn.php";

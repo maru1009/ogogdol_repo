@@ -9,24 +9,17 @@
 </head>
 <body>
     <?php require_once 'assets/header.php'?>
-  <!-- Login form -->
+  <!-- Password recovery form -->
   <div class="account-page">
     <div class="form-container">
-      <form id="LoginForm" action="process/log_pro.php" method="POST">
-        <h2>Welcome back</h2>
+      <form id="ForgotPorm" action="process/forgot_pro.php" method="POST">
+        <h2>Enter your email to change your password</h2>
         <hr/>
         <input type="text" placeholder="Email" required name="email">
-        <input type="password" placeholder="Password" required class="form" name="password">
-        <br>
         <button type="submit" class="btn">Login</button>
         <div class="button">
-            <a href="register.php">Create an account?</a><a href="forgot.php">Forgot password?</a>
+            <a href="register.php">Create an account?</a><a href="forgot.php">Already have an account?</a>
         </div>
-        <div class="social-login">
-            <a href="your_facebook_oauth_url_here" class="btn-facebook">Login with Facebook</a>
-            <a href="your_google_oauth_url_here" class="btn-google">Login with Google</a>
-            <a href="your_google_oauth_url_here" class="btn-apple">Login with Apple</a>
-          </div>
       </form>
     </div>
   </div>
