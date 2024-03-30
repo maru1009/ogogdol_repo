@@ -9,10 +9,10 @@
   <?php require_once 'assets/header.php'?>
     <!-- Product form -->
     <div class="single-product">
-      <img src="https://i.ibb.co/dWK8Fcw/computer1.png" alt="computer1">
+      <img src="images/1.webp" alt="computer1">
       <div class="info">
-          <h4>Бүтээгдэхүүний нэр</h4>
-          <h3>Бүтээгдэхүүний талаарх мэдээлэл</h3>
+          <h4>Air Force</h4>
+          <h3></h3>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, tempore!</p>
           <h2>Размераа сонгоно уу</h2>
           <select id="size">

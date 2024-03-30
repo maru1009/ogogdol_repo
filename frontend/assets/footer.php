@@ -1,12 +1,13 @@
 <style>
 
-.container-footer{ 
-  background: #000;
+.container-footer {
+  background: #F7F7F7;
   color: #8a8a8a;
   font-size: 14px;
   padding: 60px 0 20px;
   width: 100%;
 }
+
 
 .footer p {
   color: #8a8a8a;

@@ -31,6 +31,7 @@ session_start()
   
   
   /* Header starts*/
+
   .navbar {
     display: flex;
     align-items: center;
@@ -61,14 +62,17 @@ session_start()
   }
   
   .header {
-    background: #FBEEC1;
+    background: white;
     width: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    top: 0;
+    z-index: 1;
   }
   
-  .logo span{ 
-    font-size: 20px;
-    color: black;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  .logo img{ 
+    width: 60px;
+    margin: -10px;
   }
   
   .menu-icon {
@@ -95,12 +99,12 @@ session_start()
     <div class="container">
       <div class="navbar">
         <div class="logo">
-          <a href="index.php"><span>AST</span></a>
+          <a href="index.php"><img src="/images/logo.svg" alt=""></a>
         </div>
         <nav>
           <ul id="MenuItems">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="product.php">Products</a></li>
+            <li><a href="index.php">Эхлэл</a></li>
+            <li><a href="product.php">Бүтээгдэхүүн</a></li>
               <?php 
               if(isset($_SESSION['id']))
               {
@@ -108,7 +112,7 @@ session_start()
                 echo "<li><a href='../process/logout.php'>Logout</a></li>";
               }
               else{
-                echo"<li><a href='login.php'>Login</a></li>";
+                echo"<li><a href='login.php'>Нэвтрэх</a></li>";
               }
             ?>
             <!-- <li><a href="#">Contact</a></li> -->

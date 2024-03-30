@@ -35,6 +35,6 @@
   <?php require_once 'assets/footer.php'?>
   
   <!-- js for toggle menu -->
-<script src="menu.js"></script>
+<script src="js/menu.js"></script>
 </body>
 </html>

@@ -44,3 +44,19 @@ if(isset($_SESSION['id']))
         <button type="submit" class="btn">Register</button>
         <div class="button">
           <a href="login.php">Already have an account?</a>
+<<<<<<< HEAD
+=======
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <?php require_once 'assets/footer.php'?>
+  
+  <!-- js for toggle menu -->
+<script src="js/menu.js"></script>
+<script src="js/error_pass.js"></script>
+</body>
+</html>
+>>>>>>> 9e128cd2613615884e4e5ef29e3fa5e148f8b2fa

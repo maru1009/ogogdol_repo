@@ -2,15 +2,15 @@
   display: flex;
   margin: 20px 0;
   justify-content: center;
-  gap:350px;
+  gap:250px;
   height: 600px;
   align-items: center;
+  margin-top: 40px;
 }
 
-.single-product img {
-  width: 300px;
-  height: 300px;
-  margin-right: 20px;
+.single-product img{ 
+    width: 500px;
+    margin-left: 100px;
 }
 
 .single-product h4 {
