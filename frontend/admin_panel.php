@@ -9,7 +9,12 @@
 <body>
 <?php 
 require_once 'assets/header.php';
-require 'process/item_man.php'
+require 'process/item_add.php';
+
+if (isset($_SESSION['message'])) {
+    echo '<div class="insert_message">' . $_SESSION['message'] . '</div><br>';
+    unset($_SESSION['message']);
+}
 ?>
     <div class="container-add">
         <!-- button section--> 
@@ -26,32 +31,22 @@ require 'process/item_man.php'
                 <div class="box1">
                     <h2>Бүтээгдэхүүн нэмэх</h2>
                     <form method="POST" enctype="multipart/form-data">
-                    <label for="name">Бүтээгдэхүүний нэр:</label>
-                    <input type="text" id="name" name="name" required><br><br>
-                    <label for="price">Бүтээгдэхүүний үнэ:</label>
-                    <input type="number" id="price" name="price" required><br><br>
-                    <!-- <label for="size">Бүтээгдэхүүний хэмжээ:</label>
-                    <select id="size" name="size" onchange="showQuantityInput()">
-                        <option>Select Size</option>
-                        <option>XXS</option>
-                        <option>XS</option>
-                        <option>S</option>
-                        <option>M</option>
-                        <option>L</option>
-                        <option>XL</option>
-                        <option>XXL</option>
-                    </select><br><br> -->
-                    <div id="quantityInput">
-                        <label for="quantity">Тоо ширхэг:</label>
-                        <input type="number" id="quantity" name="quantity" required onchange="updateQuantity()">
-                    </div>
-                    <label for="description">Тайлбар:</label>
-                    <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
-                    <label for="image">Зураг:</label>
-                    <input type="file" id="image" name="image" accept="image/*" required><br><br>
-                    <img id="preview" src="#" alt="Image preview" style="display: none; max-width: 200px;"><br><br>
-                    <input type="submit" value="Нэмэх">
-                </form>
+                        <input type="hidden" name="action" value="add">
+                        <label for="name">Бүтээгдэхүүний нэр:</label>
+                        <input type="text" id="name" name="name" required><br><br>
+                        <label for="price">Бүтээгдэхүүний үнэ:</label>
+                        <input type="number" id="price" name="price" required><br><br>
+                        <div id="quantityInput">
+                            <label for="quantity">Тоо ширхэг:</label>
+                            <input type="number" id="quantity" name="quantity" required onchange="updateQuantity()">
+                        </div>
+                        <label for="description">Тайлбар:</label>
+                        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+                        <label for="image">Зураг:</label>
+                        <input type="file" id="image" name="image" accept="image/*" required><br><br>
+                        <img id="preview" src="#" alt="Image preview" style="display: none; max-width: 200px;"><br><br>
+                        <input type="submit" value="Нэмэх">
+                    </form>
                 </div>
             </div>
             <!-- Remove section-->
@@ -72,40 +67,21 @@ require 'process/item_man.php'
                     <form id="modifyForm" method="POST" enctype="multipart/form-data">
                         <label for="modify-item-id">Бүтээгдэхүүний ID:</label>
                         <input type="number" id="modify-item-id" name="modify-item-id" required><br><br>
-
+                        
                         <div id="hiddenFields" style="display: none;">
                             <label for="nameM">Бүтээгдэхүүний нэр:</label>
-                            <input type="text" id="name" name="name" required><br><br>
+                            <input type="text" id="nameM" name="nameM" required><br><br>
 
                             <label for="priceM">Бүтээгдэхүүний үнэ:</label>
-                            <input type="number" id="price" name="price" required><br><br>
-
-                            <!-- <label for="sizeM">Бүтээгдэхүүний хэмжээ:</label>
-                            <select id="size-mod" name="size">
-                                <option>Select Size</option>
-                                <option>XXS</option>
-                                <option>XS</option>
-                                <option>S</option>
-                                <option>M</option>
-                                <option>L</option>
-                                <option>XL</option>
-                                <option>XXL</option>
-                            </select><br><br> -->
-
+                            <input type="number" id="priceM" name="priceM" required><br><br>
                             <div id="quantityInputMod">
-                                <label for="quantityMod">Тоо ширхэг:</label>
-                                <input type="number" id="quantityMod" name="quantity">
+                                <label for="quantityM">Тоо ширхэг:</label>
+                                <input type="number" id="quantityM" name="quantityM">
                             </div>
-
-                            <label for="description">Тайлбар:</label>
-                            <textarea id="description" name="descriptionM" rows="4" cols="50" required></textarea><br><br>
-
-                            <label for="imageM">Зураг:</label>
-                            <input type="file" id="image" name="image" accept="image/*" required><br><br>
-                            <img id="preview" src="#" alt="Image preview" style="display: none; max-width: 200px;"><br><br>
+                            <label for="descriptionM">Тайлбар:</label>
+                            <textarea id="descriptionM" name="descriptionM" rows="4" cols="50" required></textarea><br><br>
                         </div>
-
-                        <input type="button" value="Check" onclick="checkItem()" class="check-button">
+                        <input type="button" value="Шалгах" onclick="checkItem()" class="check-button">
                         <input type="submit" value="Өөрчлөх" style="display: none;">
                     </form>
                 </div>

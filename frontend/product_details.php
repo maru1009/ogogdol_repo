@@ -14,17 +14,7 @@
           <h4>Air Force</h4>
           <h3></h3>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, tempore!</p>
-          <h2>Размераа сонгоно уу</h2>
-          <select id="size">
-              <option>Select Size</option>
-              <option>XXS</option>
-              <option>XS</option>
-              <option>S</option>
-              <option>M</option>
-              <option>L</option>
-              <option>XL</option>
-              <option>XXL</option>
-          </select>
+  
           <span>Тоо ширхэг: %d</span>
           <input type="number" id="quantity" value="1">
           <a href="cart.php" class="btn" onclick="addToCart()">Add to Cart</a>

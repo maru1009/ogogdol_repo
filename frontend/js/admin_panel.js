@@ -8,74 +8,6 @@ document.getElementById("image").addEventListener("change", function() {
     reader.readAsDataURL(this.files[0]);
 });
 
-// var quantityInputs = {
-//     "XXS": 0,
-//     "XS": 0,
-//     "S": 0,
-//     "M": 0,
-//     "L": 0,
-//     "XL": 0,
-//     "XXL": 0
-// };
-
-// var quantityInputsMod = {
-//     "XXS": 0,
-//     "XS": 0,
-//     "S": 0,
-//     "M": 0,
-//     "L": 0,
-//     "XL": 0,
-//     "XXL": 0
-// };
-
-// [add] size deer darahaar too ni garj irdeg
-// function showQuantityInput() {
-//     var sizeSelect = document.getElementById("size");
-//     var quantityInput = document.getElementById("quantityInput");
-//     var quantityField = document.getElementById("quantity");
-
-//     quantityField.value = quantityInputs[sizeSelect.value];
-
-//     if (sizeSelect.value === "Select Size") {
-//         quantityInput.style.display = "none";
-//     } else {
-//         quantityInput.style.display = "block";
-//     }
-// }
-
-// function updateQuantity() {
-//     var sizeSelect = document.getElementById("size");
-//     var quantityField = document.getElementById("quantity");
-
-//     quantityInputs[sizeSelect.value] = parseInt(quantityField.value); // Update the quantity associated with the selected size
-// }
-
-
-
-// [mod] size deer darahaar too ni garj irdeg
-// function showQuantityInputMod() {
-//     var sizeSelect = document.getElementById("size-mod");
-//     var quantityInput = document.getElementById("quantityInputMod");
-//     var quantityField = document.getElementById("quantityMod");
-
-//     quantityField.value = quantityInputsMod[sizeSelect.value]; // Set quantity to the value associated with the selected size
-
-//     if (sizeSelect.value === "Select Size") {
-//         quantityInput.style.display = "none";
-//     } else {
-//         quantityInput.style.display = "block";
-//     }
-// }
-
-// function updateQuantityMod() {
-//     var sizeSelect = document.getElementById("size-mod");
-//     var quantityField = document.getElementById("quantityMod");
-
-//     quantityInputsMod[sizeSelect.value] = parseInt(quantityField.value); // Update the quantity associated with the selected size
-// }
-
-
-
 
 //buttom switching
 function showAddSection() {
@@ -107,9 +39,6 @@ document.getElementById('show-price').addEventListener('change', function() {
     document.getElementById('price-section').style.display = this.checked ? 'block' : 'none';
 });
 
-// document.getElementById('show-size').addEventListener('change', function() {
-//     document.getElementById('size-section').style.display = this.checked ? 'block' : 'none';
-// });
 
 document.getElementById('show-quantity').addEventListener('change', function() {
     document.getElementById('quantity-section').style.display = this.checked ? 'block' : 'none';
@@ -124,21 +53,29 @@ document.getElementById('show-image').addEventListener('change', function() {
 });
 
 
-function checkItem() {
-    var item_id = document.getElementById('modify-item-id').value;
 
+function checkItem() {
+    var modifyItemId = document.getElementById('modify-item-id').value;
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/process/item_man.php', true);
+    xhr.open('POST', '../process/item_add.php', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            var response = JSON.parse(xhr.responseText);
-            if (response.exists) {
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var response = xhr.responseText;
+            if (response.trim() === 'found') {
                 document.getElementById('hiddenFields').style.display = 'block';
+                document.querySelector('#modifyForm [type="submit"]').style.display = 'block';
+                document.querySelector('.check-button').style.display = 'none';
             } else {
-                alert('Item not found');
+                document.getElementById('hiddenFields').style.display = 'none';
+                document.querySelector('#modifyForm [type="submit"]').style.display = 'none';
+                alert('Item ID not found in the database.');
             }
         }
+        
     };
-    xhr.send('item_id=' + item_id);
+    xhr.send('modify-item-id=' + modifyItemId);
 }
+
+
+

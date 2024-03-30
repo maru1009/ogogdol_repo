@@ -114,7 +114,7 @@ input[type="file"] {
     display: none;
 }
 
-
+/* modify item check section */
 .check-button {
     padding: 10px 10px;
     background-color: #28a745;
@@ -130,6 +130,17 @@ input[type="file"] {
 
 .check-button:hover {
     background-color: #218838;
+}
+
+.insert_message {
+    display: flex;
+    background-color: #f2f2f2;
+    color: #333;
+    padding: 10px;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100pxf;
 }
 
 @media only screen and (max-width: 950px) {
