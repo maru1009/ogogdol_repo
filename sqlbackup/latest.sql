@@ -168,11 +168,12 @@ CREATE TABLE `product` (
   `Prod_description` text,
   `Prod_quan` int DEFAULT '0',
   `Prod_Cost` decimal(10,2) NOT NULL,
+  `Prod_img` varchar(25) DEFAULT NULL,
   `Cat_ID` int DEFAULT NULL,
   PRIMARY KEY (`Prod_ID`),
   KEY `fk_product_category` (`Cat_ID`),
   CONSTRAINT `fk_product_category` FOREIGN KEY (`Cat_ID`) REFERENCES `category` (`Cat_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -205,4 +206,4 @@ CREATE TABLE `shipment` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-31  2:24:56
+-- Dump completed on 2024-03-31 20:41:48
