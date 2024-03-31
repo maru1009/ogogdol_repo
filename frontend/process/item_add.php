@@ -1,14 +1,10 @@
 <?php
 require "conn.php";
 
-function uploadFile($target_dir) {
+function uploadFile($conn, $target_dir, $prod_id) {
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
-
-    // check file exists
-    if (file_exists($target_dir . basename($_FILES["image"]["name"]))) {
-        return "Sorry, file already exists.";
-    }
+    $new_filename = $prod_id . '_product.' . $imageFileType;
 
     // check file size
     if ($_FILES["image"]["size"] > 500000) {
@@ -16,7 +12,7 @@ function uploadFile($target_dir) {
     }
 
     // validate picture
-    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" && $imageFileType != "webp") {
         return "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     }
 
@@ -25,13 +21,26 @@ function uploadFile($target_dir) {
         return "Sorry, your file was not uploaded.";
     // upload if it is ok
     } else {
-        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_dir . basename($_FILES["image"]["name"]))) {
-            return "The file " . basename($_FILES["image"]["name"]) . " has been uploaded.";
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_dir . $new_filename)) {
+            $sql = "UPDATE product SET prod_img=? WHERE prod_id=?";
+            $stmt = mysqli_prepare($conn, $sql);
+
+            if (!$stmt) {
+                return "Error in preparing update statement: " . mysqli_error($conn);
+            }
+
+            mysqli_stmt_bind_param($stmt, "si", $new_filename, $prod_id);
+            if (mysqli_stmt_execute($stmt)) {
+                return "The file " . $new_filename . " has been uploaded and linked to the product.";
+            } else {
+                return "Error updating database: " . mysqli_error($conn);
+            }
         } else {
             return "Sorry, there was an error uploading your file.";
         }
     }
 }
+
 
 function insertProduct($conn, $prod_name, $prod_description, $prod_quantity, $prod_cost) {
     $sql = "INSERT INTO product (Prod_Name, Prod_description, Prod_quan, Prod_Cost)
@@ -39,7 +48,7 @@ function insertProduct($conn, $prod_name, $prod_description, $prod_quantity, $pr
     if ($conn->query($sql) === TRUE) {
         return "Бүтээгдэхүүн амжилттай нэмэгдлээ.";
     } else {
-        return "Алдаа гарлаа.";
+        return "Алдаа:" . mysqli_error($conn);
     }
 }
 
@@ -68,7 +77,7 @@ function modifyProduct($conn, $prod_id, $prod_name, $prod_description, $prod_qua
     if ($conn->query($sql) === TRUE) {
         return "Бүтээгдэхүүн амжилттай шинэчилэгдлээ.";
     } else {
-        return "Алдаа гарлаа.";
+        return "Алдаа:" . mysqli_error($conn);
     }
 }
 
@@ -80,12 +89,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $prod_quantity = $_POST['quantity'];
         $prod_cost = $_POST['price'];
         $target_dir = "images/"; 
-
-        $upload_message = uploadFile($target_dir);
-        $_SESSION['upload_message'] = $upload_message;
-
-        if (strpos($upload_message, "uploaded") !== false) {
-            $message = insertProduct($conn, $prod_name, $prod_description, $prod_quantity, $prod_cost);
+        $message = insertProduct($conn, $prod_name, $prod_description, $prod_quantity, $prod_cost);
+        $prod_id = mysqli_insert_id($conn);
+        $upload_message = uploadFile($conn, $target_dir, $prod_id);
+        if (strpos($upload_message, "uploaded") === false) {
+             $_SESSION['message'] = 'Зураг оруулахад алдаа гарлаа.';
+        }else{
+          
             $_SESSION['message'] = $message;
         }
         header("Location: ".$_SERVER['PHP_SELF']);

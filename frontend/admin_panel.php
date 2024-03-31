@@ -116,7 +116,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+    </div>
     </div>
     <!-- Footer -->
     <?php require_once 'assets/footer.php'?>

@@ -9,12 +9,11 @@
 }
 
 .single-product img{ 
-    width: 500px;
-    margin-left: 100px;
+    width: 300px;
 }
 
 .single-product h4 {
-  margin: 20px 0;
+  margin-bottom: 10px;
   font-size: 40px;
   font-weight: bold;
 }
@@ -24,29 +23,35 @@
   font-size: 24px;
 }
 
-.single-product .info h2 {
+.single-product .info p {
   margin: 20px 0;
   font-size: 20px;
 }
 
-.single-product select {
-  display: block;
-  padding: 10px;
-  margin-bottom: 20px;
-}
 
 .single-product .info span {
   display: flex;
   font-size: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
-.single-product input {
-  width: 50px;
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+
+}
+
+/* Style the input field */
+.single-product input[type=number] {
+  width: 150px;
   height: 40px;
-  padding-left: 10px;
-  font-size: 20px;
+  padding-left: 5px;
+  font-size: 16px;
   margin-right: 10px;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 input:focus {
@@ -54,6 +59,7 @@ input:focus {
 }
 
 .btn {
+  width: 150px;
   border: 1px solid black;
   padding: 10px 20px;
   background-color: transparent;
