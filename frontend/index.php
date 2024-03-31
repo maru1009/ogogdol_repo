@@ -14,6 +14,8 @@
     <div class="row">
         <?php
         require_once "process/get_items.php";
+        $total_rows = $result->num_rows;
+        $result->data_seek($total_rows - 10);
 
         while($row = $result->fetch_assoc()) {
             echo '<div class="col-3">';
@@ -31,6 +33,9 @@
     <h2 class="title">Сүүлийн үеийн загвар</h2>
     <div class="row">
         <?php
+        require_once "process/get_items.php";
+        $total_rows = $result->num_rows;
+        $result->data_seek($total_rows - 10);
         while($row = $result->fetch_assoc()) {
             echo '<div class="col-3">';
             echo '<a href="product_details.php?id=' . $row["Prod_ID"] . '">';

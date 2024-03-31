@@ -97,7 +97,7 @@ ul {
     <div class="container-footer">
       <div class="row">
         <div class="footer-col-1">
-          <h3>Download Our App</h3>
+          <h3>Application татах</h3>
           <p>Download App for Android and iso mobile phone.</p>
           <div class="app-logo">
             <img src="https://i.ibb.co/KbPTYYQ/play-store.png" alt="" />
@@ -116,7 +116,7 @@ ul {
         </div>
   
         <div class="footer-col-3">
-          <h3>Follow us</h3>
+          <h3>Social хаягууд</h3>
           <ul>
             <li>Facebook</li>
             <li>Twitter</li>

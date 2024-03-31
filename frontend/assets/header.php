@@ -108,8 +108,8 @@ session_start()
               <?php 
               if(isset($_SESSION['id']))
               {
-                echo "<li><a href='my_profile.php'>Profile</a></li>";
-                echo "<li><a href='../process/logout.php'>Logout</a></li>";
+                echo "<li><a href='my_profile.php'>Нүүр</a></li>";
+                echo "<li><a href='../process/logout.php'>Гарах</a></li>";
               }
               else{
                 echo"<li><a href='login.php'>Нэвтрэх</a></li>";
