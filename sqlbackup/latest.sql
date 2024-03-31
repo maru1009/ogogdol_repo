@@ -36,6 +36,15 @@ CREATE TABLE `cart` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `cart`
+--
+
+LOCK TABLES `cart` WRITE;
+/*!40000 ALTER TABLE `cart` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cart` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `category`
 --
 
@@ -51,6 +60,15 @@ CREATE TABLE `category` (
   CONSTRAINT `fk__category` FOREIGN KEY (`Parent_Cat_ID`) REFERENCES `category` (`Cat_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `category`
+--
+
+LOCK TABLES `category` WRITE;
+/*!40000 ALTER TABLE `category` DISABLE KEYS */;
+/*!40000 ALTER TABLE `category` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `customer`
@@ -70,6 +88,16 @@ CREATE TABLE `customer` (
   PRIMARY KEY (`Cus_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customer`
+--
+
+LOCK TABLES `customer` WRITE;
+/*!40000 ALTER TABLE `customer` DISABLE KEYS */;
+INSERT INTO `customer` VALUES (1,'asd','ads','test@gmail.com','7ea2673456b2beda0a98e52ff036a26b052616939131791063a50bcd9ca75e40','660585122a196',0),(2,'das','asd','forctf0@gmail.com','867a0d4b9138b99358a4ff7a622ac391150f8f2e85d612598abfea6b10dd1c01','66081428519fb',0);
+/*!40000 ALTER TABLE `customer` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `order_history`
@@ -96,6 +124,15 @@ CREATE TABLE `order_history` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `order_history`
+--
+
+LOCK TABLES `order_history` WRITE;
+/*!40000 ALTER TABLE `order_history` DISABLE KEYS */;
+/*!40000 ALTER TABLE `order_history` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `order_item`
 --
 
@@ -115,6 +152,15 @@ CREATE TABLE `order_item` (
   CONSTRAINT `fk_product` FOREIGN KEY (`Prod_ID`) REFERENCES `product` (`Prod_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `order_item`
+--
+
+LOCK TABLES `order_item` WRITE;
+/*!40000 ALTER TABLE `order_item` DISABLE KEYS */;
+/*!40000 ALTER TABLE `order_item` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `orders`
@@ -139,6 +185,15 @@ CREATE TABLE `orders` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `payment`
 --
 
@@ -154,6 +209,15 @@ CREATE TABLE `payment` (
   PRIMARY KEY (`Pay_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `payment`
+--
+
+LOCK TABLES `payment` WRITE;
+/*!40000 ALTER TABLE `payment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `payment` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `product`
@@ -177,6 +241,16 @@ CREATE TABLE `product` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `product`
+--
+
+LOCK TABLES `product` WRITE;
+/*!40000 ALTER TABLE `product` DISABLE KEYS */;
+INSERT INTO `product` VALUES (1,'Air Force 1','Air Force 1 white',15,200000.00,'1_product.webp',NULL),(2,'TMNT x Adidas','TNMT Special Edition ',20,300000.00,'2_product.webp',NULL),(3,'Jordan Retro 3','Retro edition',50,250000.00,'3_product.webp',NULL),(4,'New Balance 327','New Balance 327 Beige',25,199999.00,'4_product.webp',NULL),(5,'All-Pro NITRO Marcus','All-Pro NITRO Marcus Basketball Shoes',35,150000.00,'5_product.webp',NULL),(6,'adidas AE 1','adidas AE 1 men',25,169999.00,'6_product.webp',NULL),(7,'PUMA x Easy Rider','PUMA x Easy Rider 123',10,500000.00,'7_product.webp',NULL),(8,'Nike Zoom Lebron IV','Nike Zoom Lebron IV 123',15,450000.00,'8_product.webp',NULL),(9,'AIR MAX','AIR MAX 1 86 OG BIG BUBBLE',10,144444.00,'9_product.jpg',NULL),(10,'AIR MAX 180','AIR MAX 180 ULTRAMARINE 2018',23,155555.00,'10_product.jpg',NULL);
+/*!40000 ALTER TABLE `product` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `shipment`
 --
 
@@ -196,6 +270,15 @@ CREATE TABLE `shipment` (
   CONSTRAINT `fk_product_shipment` FOREIGN KEY (`prod_id`) REFERENCES `product` (`Prod_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `shipment`
+--
+
+LOCK TABLES `shipment` WRITE;
+/*!40000 ALTER TABLE `shipment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `shipment` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -206,4 +289,4 @@ CREATE TABLE `shipment` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-31 20:41:48
+-- Dump completed on 2024-03-31 20:44:42
