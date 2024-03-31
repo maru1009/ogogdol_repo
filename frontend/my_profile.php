@@ -17,22 +17,22 @@ if(!isset($_SESSION['id'])) {
 </head>
 <body>
 <?php require_once 'assets/header.php '?>
+<?php require 'process/profile.php' ?> 
   <!-- Profile form -->
   <div class="profile-page">
     <div class="profile-container">
         <div class="profile-header">
             <img src="images/image1.png" alt="Profile Picture">
-            <h2>User Name</h2>
+            <h2><?php echo $first , " " , $last; ?></h2>
         </div>
         <div class="profile-info">
-          <h5>Email</h5>
-            <span>Email: user@example.com</span>
-            <h5>Phone</h5>
-            <span>Phone: +97699119911</span>
+            <h5>Email</h5>
+            <span>Email: <?php echo $email; ?></span>
+            <h5>Password</h5>
+            <span>Password: ********</span>
         </div>
         <div class="profile-footer">
             <button>Edit Profile</button>
-            <button>Change Password</button>
         </div>
     </div>
   </div>

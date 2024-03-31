@@ -7,15 +7,17 @@
     <link rel="stylesheet" href="css/admin_panel.css">
 </head>
 <body>
-<?php 
-require_once 'assets/header.php';
-require 'process/item_add.php';
-
-if (isset($_SESSION['message'])) {
-    echo '<div class="insert_message">' . $_SESSION['message'] . '</div><br>';
-    unset($_SESSION['message']);
-}
-?>
+    <?php 
+    require_once 'assets/header.php';
+    require 'process/item_add.php';
+    require 'process/get_items.php';
+    //log message
+    if (isset($_SESSION['message'])) {
+        echo '<div class="insert_message">' . $_SESSION['message'] . '</div><br>';
+        unset($_SESSION['message']);
+    }
+    ?>
+    <!-- box started -->
     <div class="container-add">
         <!-- button section--> 
         <div class="button-container">
@@ -26,6 +28,39 @@ if (isset($_SESSION['message'])) {
         </div>
         <!-- option -->
         <div class="options">
+            <div id="itemsSection" class="hidden">
+                <h1>Бүтээгдэхүүний жагсаалт</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Бүтээгдэхүүний ID</th>
+                            <th>Бүтээгдэхүүний нэр</th>
+                            <th>Бүтээгдэхүүний тайлбар</th>
+                            <th>Бүтээгдэхүүний үнэ</th>
+                            <th>Бүтээгдэхүүний тоо</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody">
+                        <?php
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td>" . $row["Prod_ID"] . "</td>";
+                                echo "<td>" . $row["Prod_Name"] . "</td>";
+                                echo "<td>" . $row["Prod_description"] . "</td>";
+                                echo "<td>" . $row["Prod_Cost"] . "</td>";
+                                echo "<td>" . $row["Prod_quan"] . "</td>";
+                                echo "</tr>";
+                            }
+                        } else {
+                            $message = 'Одоогоор бүтээгдэхүүн алга байна.';
+                            $_SESSION['message'] = $message;
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+
             <!-- add section--> 
             <div id="addSection" class="hidden">
                 <div class="box1">
@@ -36,10 +71,8 @@ if (isset($_SESSION['message'])) {
                         <input type="text" id="name" name="name" required><br><br>
                         <label for="price">Бүтээгдэхүүний үнэ:</label>
                         <input type="number" id="price" name="price" required><br><br>
-                        <div id="quantityInput">
-                            <label for="quantity">Тоо ширхэг:</label>
-                            <input type="number" id="quantity" name="quantity" required onchange="updateQuantity()">
-                        </div>
+                        <label for="quantity">Тоо ширхэг:</label>
+                        <input type="number" id="quantity" name="quantity" required onchange="updateQuantity()">
                         <label for="description">Тайлбар:</label>
                         <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
                         <label for="image">Зураг:</label>
@@ -67,17 +100,14 @@ if (isset($_SESSION['message'])) {
                     <form id="modifyForm" method="POST" enctype="multipart/form-data">
                         <label for="modify-item-id">Бүтээгдэхүүний ID:</label>
                         <input type="number" id="modify-item-id" name="modify-item-id" required><br><br>
-                        
+                        <!-- hidden field -->
                         <div id="hiddenFields" style="display: none;">
                             <label for="nameM">Бүтээгдэхүүний нэр:</label>
                             <input type="text" id="nameM" name="nameM" required><br><br>
-
                             <label for="priceM">Бүтээгдэхүүний үнэ:</label>
                             <input type="number" id="priceM" name="priceM" required><br><br>
-                            <div id="quantityInputMod">
-                                <label for="quantityM">Тоо ширхэг:</label>
-                                <input type="number" id="quantityM" name="quantityM">
-                            </div>
+                            <label for="quantityM">Тоо ширхэг:</label>
+                            <input type="number" id="quantityM" name="quantityM">
                             <label for="descriptionM">Тайлбар:</label>
                             <textarea id="descriptionM" name="descriptionM" rows="4" cols="50" required></textarea><br><br>
                         </div>
@@ -88,13 +118,10 @@ if (isset($_SESSION['message'])) {
             </div>
         </div>
     </div>
-
-    
-  <!-- Footer -->
-  <?php require_once 'assets/footer.php'?>
-  
-  <!-- js for toggle menu -->
-<script src="js/menu.js"></script>
-<script src="js/admin_panel.js"></script>
+    <!-- Footer -->
+    <?php require_once 'assets/footer.php'?>
+    <!-- js for toggle menu -->
+    <script src="js/menu.js"></script>
+    <script src="js/admin_panel.js"></script>
 </body>
 </html>

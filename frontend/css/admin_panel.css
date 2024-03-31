@@ -143,6 +143,23 @@ input[type="file"] {
     margin-top: 100pxf;
 }
 
+#itemsSection table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+#itemsSection th, #itemsSection td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+#itemsSection th {
+    background-color: white;
+}
+
+
 @media only screen and (max-width: 950px) {
     .container-add{ 
       gap: 50px;

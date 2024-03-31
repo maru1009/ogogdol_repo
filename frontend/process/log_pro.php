@@ -52,4 +52,7 @@ function redirectToLoginPage($error)
     header("Location: login.php?error=$error");
     exit();
 }
+
+
+
 ?>

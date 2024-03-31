@@ -9,17 +9,24 @@
 </head>
 <body>
     <?php require_once 'assets/header.php'?>
+    <?php require 'assets/profile.php' ?>
   <!-- Password recovery form -->
-  <div class="account-page">
-    <div class="form-container">
-      <form id="ForgotPorm" action="process/forgot_pro.php" method="POST" onsubmit="return validateForm()">
-        <h2>Email-ээ оруулна уу.</h2>
-        <input type="text" placeholder="Email" required name="email" class="email-input">
-        <div class="button">
-            <a href="javascript:history.back()">Back</a>
-            <button type="submit" class="btn">Submit</button>
-        </div>
-      </form>
+  <div class="profile-page">
+    <div class="profile-container">
+      <div class="profile-header">
+        <img src="images/image1.png" alt="Profile Picture">
+        <h2><?php echo $username; ?></h2>
+      </div>
+      <div class="profile-info">
+        <h5>Email</h5>
+        <span>Email: <?php echo $email; ?></span>
+        <h5>Phone</h5>
+        <span>Phone: <?php echo $phone; ?></span>
+      </div>
+      <div class="profile-footer">
+        <button>Edit Profile</button>
+        <button>Change Password</button>
+      </div>
     </div>
   </div>
 

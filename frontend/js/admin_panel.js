@@ -11,24 +11,34 @@ document.getElementById("image").addEventListener("change", function() {
 
 //buttom switching
 function showAddSection() {
+    document.getElementById('itemsSection').style.display = 'none';
     document.getElementById('addSection').style.display = 'block';
     document.getElementById('removeSection').style.display = 'none';
     document.getElementById('modifySection').style.display = 'none';
 }
 
 function showDeleteSection() {
+    document.getElementById('itemsSection').style.display = 'none';
     document.getElementById('addSection').style.display = 'none';
     document.getElementById('removeSection').style.display = 'block';
     document.getElementById('modifySection').style.display = 'none';
 }
 
 function showModifySection() {
+    document.getElementById('itemsSection').style.display = 'none';
     document.getElementById('addSection').style.display = 'none';
     document.getElementById('removeSection').style.display = 'none';
     document.getElementById('modifySection').style.display = 'block';
 }
 
-showAddSection();
+function showItems(){ 
+    document.getElementById('itemsSection').style.display = 'block';
+    document.getElementById('addSection').style.display = 'none';
+    document.getElementById('removeSection').style.display = 'none';
+    document.getElementById('modifySection').style.display = 'none';
+}
+
+showItems()
 
 
 document.getElementById('show-name').addEventListener('change', function() {
