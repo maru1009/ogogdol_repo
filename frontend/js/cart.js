@@ -1,46 +1,81 @@
-const cartItems = document.getElementById('cart-items');
-const totalSpan = document.getElementById('total-price');
-let total = 0;
+function addToCart() {
+    var productName = document.querySelector('.info h4').innerText;
+    var productPrice = parseFloat(document.querySelector('.info h3').innerText);
+    var productQuantity = parseInt(document.getElementById('quantity').value);
+    var productRemainingQuantity = parseInt(document.querySelector('.info h2').innerText.split(':')[1].trim());
 
-function addToCart(productName, productPrice) {
-    const productDiv = document.createElement('div');
-    productDiv.classList.add('product');
+    // Validate quantity
+    if (isNaN(productQuantity) || productQuantity <= 0) {
+        updateMessage('Тоо оруулна уу.', 'error');
+        return;
+    }
 
-    const productDetails = document.createElement('div');
-    productDetails.classList.add('product-details');
+    // Validate remaining quantity
+    if (productQuantity > productRemainingQuantity) {
+        updateMessage('Үлдэгдэл бүтээгдэхүүнээс их байна.', 'error');
+        return;
+    }
 
-    const name = document.createElement('p');
-    name.classList.add('product-name');
-    name.textContent = productName;
+    var cartItem = {
+        name: productName,
+        price: productPrice,
+        quantity: productQuantity,
+        remainingQuantity: productRemainingQuantity
+    };
 
-    const price = document.createElement('p');
-    price.classList.add('product-price');
-    price.textContent = productPrice;
-
-    const quantity = document.createElement('p');
-    quantity.classList.add('quantity');
-    quantity.innerHTML = `Quantity: <input type="number" value="1" min="1">`;
-
-    const removeBtn = document.createElement('button');
-    removeBtn.classList.add('remove-btn');
-    removeBtn.textContent = 'Remove';
-    removeBtn.addEventListener('click', () => {
-        total -= parseFloat(productPrice);
-        totalSpan.textContent = total.toFixed(2);
-        productDiv.remove();
+    $.ajax({
+        type: 'POST',
+        url: '../process/addToCart.php',
+        data: cartItem,
+        success: function() {
+            updateMessage('Бараа амжилттай сагслагдлаа.', 'success');
+        },
+        error: function() {
+            updateMessage('Бараа сагслахад алдаа гарлаа.', 'error');
+        }
     });
-
-    productDetails.appendChild(name);
-    productDetails.appendChild(price);
-    productDetails.appendChild(quantity);
-    productDetails.appendChild(removeBtn);
-
-    productDiv.appendChild(productDetails);
-    cartItems.appendChild(productDiv);
-
-    total += parseFloat(productPrice);
-    totalSpan.textContent = total.toFixed(2);
 }
 
-addToCart('Product Name 1', '10.00');
-addToCart('Product Name 2', '20.00');
+
+function removeFromCart(productName) {
+    $.ajax({
+        type: 'POST',
+        url: '../process/removeFromCart.php',
+        data: { name: productName },
+        success: function() {
+            updateMessage('Бараа амжилттай хасагдлаа.', 'success', function() {
+                $('#cart-items').find('.cart-item').each(function() {
+                    if ($(this).find('p:first').text().trim() === productName) {
+                        $(this).remove();
+                    }
+                });
+               
+            });
+        },
+        error: function() {
+            updateMessage('Алдаа гарлаа', 'error');
+        }
+    });
+    setTimeout(function() {
+        location.reload();
+    }, 5000);
+}
+
+
+
+
+
+function updateMessage(message, type) {
+    var messageDiv = document.getElementById('message');
+    messageDiv.innerHTML = message;
+    messageDiv.classList.add(type);
+    messageDiv.style.display = 'flex';
+
+    // Remove the message after 3 seconds
+    setTimeout(function() {
+        messageDiv.innerHTML = '';
+        messageDiv.classList.remove(type);
+        messageDiv.style.display = 'none'; 
+    }, 7000);
+}
+

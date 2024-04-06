@@ -1,3 +1,5 @@
+
+
 // zurag haruulah zorilgotoi
 document.getElementById("image").addEventListener("change", function() {
     var reader = new FileReader();
@@ -11,13 +13,16 @@ document.getElementById("image").addEventListener("change", function() {
 
 //buttom switching
 function showAddSection() {
+    document.getElementById('userSection').style.display = 'none'
     document.getElementById('itemsSection').style.display = 'none';
     document.getElementById('addSection').style.display = 'block';
     document.getElementById('removeSection').style.display = 'none';
     document.getElementById('modifySection').style.display = 'none';
+
 }
 
 function showDeleteSection() {
+    document.getElementById('userSection').style.display = 'none'
     document.getElementById('itemsSection').style.display = 'none';
     document.getElementById('addSection').style.display = 'none';
     document.getElementById('removeSection').style.display = 'block';
@@ -25,6 +30,7 @@ function showDeleteSection() {
 }
 
 function showModifySection() {
+    document.getElementById('userSection').style.display = 'none'
     document.getElementById('itemsSection').style.display = 'none';
     document.getElementById('addSection').style.display = 'none';
     document.getElementById('removeSection').style.display = 'none';
@@ -32,13 +38,21 @@ function showModifySection() {
 }
 
 function showItems(){ 
+    document.getElementById('userSection').style.display = 'none'
     document.getElementById('itemsSection').style.display = 'block';
     document.getElementById('addSection').style.display = 'none';
     document.getElementById('removeSection').style.display = 'none';
     document.getElementById('modifySection').style.display = 'none';
 }
 
-showItems()
+function showUsers(){ 
+    document.getElementById('userSection').style.display = 'block'
+    document.getElementById('itemsSection').style.display = 'none';
+    document.getElementById('addSection').style.display = 'none';
+    document.getElementById('removeSection').style.display = 'none';
+    document.getElementById('modifySection').style.display = 'none';
+}
+showUsers()
 
 
 document.getElementById('show-name').addEventListener('change', function() {

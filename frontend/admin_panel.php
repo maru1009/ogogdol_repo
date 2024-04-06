@@ -10,7 +10,8 @@
     <?php 
     require_once 'assets/header.php';
     require 'process/item_add.php';
-    require 'process/get_items.php';
+
+
     //log message
     if (isset($_SESSION['message'])) {
         echo '<div class="insert_message">' . $_SESSION['message'] . '</div><br>';
@@ -20,14 +21,56 @@
     <!-- box started -->
     <div class="container-add">
         <!-- button section--> 
-        <div class="button-container">
-            <button class="admin-button" onclick="showItems()" >Бүх бүтээгдэхүүн харах</button>
-            <button class="admin-button" onclick="showAddSection()">Бүтээгдэхүүн нэмэх</button>
-            <button class="admin-button" onclick="showDeleteSection()">Бүтээгдэхүүн устгах</button>
-            <button class="admin-button" onclick="showModifySection()">Бүтээгдэхүүнд өөрчлөлт хийх</button>
+        <div class="dropdown">
+            <button class="admin-button dropdown-toggle" id="dropdownMenuButton">
+                Сонголтууд
+            </button>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a onclick="showUsers()">Бүх хэрэглэгчдийг харах</a>
+                <a onclick="showItems()">Бүх бүтээгдэхүүн харах</a>
+                <a onclick="showAddSection()">Бүтээгдэхүүн нэмэх</a>
+                <a onclick="showDeleteSection()">Бүтээгдэхүүн устгах</a>
+                <a onclick="showModifySection()">Бүтээгдэхүүнд өөрчлөлт хийх</a>
+            </div>
         </div>
-        <!-- option -->
+
+            <!-- option -->
         <div class="options">
+            <div id="userSection" class="hidden">
+                <h1>Одоо байгаа хэрэглэгчид</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Хэрэглэгчийн ID</th>
+                            <th>Овог</th>
+                            <th>Нэр</th>
+                            <th>Email</th>
+                            <th>admin</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                        <?php
+                        require_once 'process/get_users.php';
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td>" . $row["Cus_ID"] . "</td>";
+                                echo "<td>" . $row["cus_first_name"] . "</td>";
+                                echo "<td>" . $row["cus_last_name"] . "</td>";
+                                echo "<td>" . $row["Cus_email"] . "</td>";
+                                echo "<td>" . ($row["admin"] == 1 ? "Тийм" : "Үгүй") . "</td>";
+                                echo "</tr>";
+                            }
+                        } else {
+                            $message = 'Одоогоор хэрэглэгч алга байна.';
+                            $_SESSION['message'] = $message;
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+
+
             <div id="itemsSection" class="hidden">
                 <h1>Бүтээгдэхүүний жагсаалт</h1>
                 <table>
@@ -42,6 +85,7 @@
                     </thead>
                     <tbody id="productsTableBody">
                         <?php
+                        require_once 'process/get_items.php';
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
                                 echo "<tr>";
