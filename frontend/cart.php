@@ -17,17 +17,15 @@
     <h1>Сагс</h1>
     <div id="cart-items">
         <?php
-        $totalPrice = 0; // Initialize total price variable
+        $totalPrice = 0;
         if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
             foreach ($_SESSION['cart'] as $index => $cartItem) {
                 echo '<div class="cart-item">';
                 echo '<p>Нэр: ' . $cartItem['name'] . '</p>';
-                echo '<p>Үнэ: ' . $cartItem['price'] . '</p>';
+                echo '<p>Үнэ: ' . $cartItem['price'] . '₮</p>';
                 echo '<p>Тоо ширхэг: ' . $cartItem['quantity'] . '</p>';
                 echo '<button class="remove-btn" onclick="removeFromCart(\'' . $cartItem['name'] . '\')">Устгах</button>';
                 echo '</div>';
-
-                // Add the item price to the total price
                 $totalPrice += $cartItem['price'] * $cartItem['quantity'];
             }
         } else {

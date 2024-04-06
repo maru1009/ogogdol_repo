@@ -1,3 +1,34 @@
+<?php
+session_start();
+require 'process/conn.php'; 
+
+$sql = 'SELECT Cus_ID FROM customer WHERE admin = 1'; 
+$result = mysqli_query($conn, $sql);
+
+if (isset($_SESSION['id'])) {
+    $user_id = $_SESSION['id'];
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $admin_id = $row['Cus_ID'];
+        
+        if ($user_id != $admin_id) { 
+            http_response_code(403);
+            exit;
+        }
+    } else {
+        // No admin found, handle this case
+        http_response_code(403);
+        exit;
+    }
+} else { 
+    header('Location: login.php');
+    exit;
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

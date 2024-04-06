@@ -12,7 +12,7 @@
   <!-- all product page-->
   <div class="small-container">
     <div class="row-2">
-      <h2>All Products</h2>
+      <h2>Бүх бүтээгдэхүүн</h2>
     </div>
     <div class="row">
       <?php require_once "process/get_items.php";

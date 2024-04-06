@@ -23,6 +23,12 @@
   font-size: 24px;
 }
 
+.single-product .info h2{ 
+  margin: 20px 0;
+  font-size: 20px;
+  color: #555555 ;
+}
+
 .single-product .info p {
   margin: 20px 0;
   font-size: 20px;
@@ -35,6 +41,8 @@
   margin-bottom: 5px;
   display: inline;
 }
+
+
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
