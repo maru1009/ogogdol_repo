@@ -9,14 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($_SESSION['cart'] as $index => $item) {
         if ($item['name'] === $productNameToRemove) {
             unset($_SESSION['cart'][$index]);
-            $_SESSION['cart'] = array_values($_SESSION['cart']); // Reindex the array
+            $_SESSION['cart'] = array_values($_SESSION['cart']);
 
             // Debugging output
             echo 'Item removed from cart successfully.';
             echo 'Updated cart array: ';
             var_dump($_SESSION['cart']);
 
-            exit; // Exit to prevent further output
+            exit;
         }
     }
 

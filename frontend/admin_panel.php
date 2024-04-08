@@ -16,7 +16,6 @@ if (isset($_SESSION['id'])) {
             exit;
         }
     } else {
-        // No admin found, handle this case
         http_response_code(403);
         exit;
     }
@@ -42,11 +41,10 @@ if (isset($_SESSION['id'])) {
     require_once 'assets/header.php';
     require 'process/item_add.php';
 
-
-    //log message
     if (isset($_SESSION['message'])) {
         echo '<div class="insert_message">' . $_SESSION['message'] . '</div><br>';
         unset($_SESSION['message']);
+        echo '<script>setTimeout(function() { document.querySelector(".insert_message").remove(); }, 10000);</script>';
     }
     ?>
     <!-- box started -->

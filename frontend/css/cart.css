@@ -71,8 +71,8 @@
 
 
 #message {
+    margin-top: 100px;
     display: none;
-    top: 0;
     left: 0;
     width: 100%;
     background-color: #f2f2f2;
