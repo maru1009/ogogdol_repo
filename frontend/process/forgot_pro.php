@@ -79,7 +79,7 @@ if(is_post_request())
             $mail->addAddress($email);
             $mail->Subject = "Password reset";
             $mail->Body = <<<END
-            Click <a href="http://localhost:8083/reset-password.php?token=$token"> here </a>
+            Click <a href="http://localhost:8083/reset-password2.php?token=$token"> here </a>
             to reset your password.
             END;
             $mail->send();
