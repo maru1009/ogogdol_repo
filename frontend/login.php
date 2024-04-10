@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -15,6 +15,16 @@
       <form id="LoginForm" action="process/log_pro.php" method="POST">
         <h2>Welcome back</h2>
         <hr/>
+
+        <?php if (isset($_SESSION['login_errors'])): ?>
+        <div class="form-errors">
+        <?php foreach($_SESSION['login_errors'] as $error): ?>
+            <p class="login_errors"><?php echo $error ?></p>
+        <?php endforeach; ?>
+        </div>
+       <!-- $_SESSION['errors']=null; -->
+       <?php endif; ?>
+
         <input type="text" placeholder="Email" required name="email">
         <input type="password" placeholder="Password" required class="form" name="password">
         <br>

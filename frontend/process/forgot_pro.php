@@ -20,6 +20,11 @@ if(is_post_request())
         }
     }
 
+    if (!empty($_SESSION['forgot_errors'])) {
+      header("Location: ../forgot.php");
+      exit();
+  }
+
     $email = validate($_POST['email']);
 
     // Query
@@ -87,10 +92,10 @@ if(is_post_request())
         // If user is not in db 
         else{
 
-            $_SESSION['forgot_errors'][] = "Email is not valid";
+            $_SESSION['forgot_errors'][] = "Email is not registered";
             if (!empty($_SESSION['forgot_errors'])) {
                 // to-do : ene neg ymni haasha ywahig bodoh
-                header("Location: ../register.php");
+                header("Location: ../forgot.php");
                 exit();
             }
         }

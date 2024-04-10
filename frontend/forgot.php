@@ -11,6 +11,14 @@
     <div class="form-container">
       <form id="ForgotPorm" action="process/forgot_pro.php" method="POST" onsubmit="return validateForm()">
         <h2>Email-ээ оруулна уу.</h2>
+        <?php if (isset($_SESSION['forgot_errors'])): ?>
+        <div class="form-errors">
+        <?php foreach($_SESSION['forgot_errors'] as $error): ?>
+            <p class="forgot_errors"><?php echo $error ?></p>
+        <?php endforeach; ?>
+        </div>
+       <!-- $_SESSION['errors']=null; -->
+       <?php endif; ?>
         <input type="text" placeholder="Email" required name="email" class="email-input">
         <div class="button">
             <a href="javascript:history.back()">Back</a>

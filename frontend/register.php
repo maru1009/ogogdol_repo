@@ -27,7 +27,7 @@ if(isset($_SESSION['id']))
         <?php if (isset($_SESSION['errors'])): ?>
         <div class="form-errors">
         <?php foreach($_SESSION['errors'] as $error): ?>
-            <p><?php echo $error ?></p>
+            <p class="register_errors"><?php echo $error ?></p>
         <?php endforeach; ?>
        </div>
        <!-- $_SESSION['errors']=null; -->

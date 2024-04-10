@@ -99,3 +99,7 @@ form .btn:focus {
 .btn-apple{
     background-color: black;
 }
+.login_errors{
+    color :#dd4b39;
+}
+
