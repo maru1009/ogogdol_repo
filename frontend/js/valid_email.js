@@ -3,7 +3,7 @@ function validateForm() {
     var email = emailInput.value.trim();
 
   
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var emailRegex = /^[a-z0-9!#$%&'*+\/=?^{|}~-]+(?:\\.[a-z0-9!#$%&'*+\\/=?^_{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 
     if (!emailRegex.test(email)) {
         emailInput.style.borderColor = "red";
