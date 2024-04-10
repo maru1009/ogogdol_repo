@@ -23,8 +23,10 @@
         <?php endforeach; ?>
         </div>
        <!-- $_SESSION['errors']=null; -->
-       <?php endif; ?>
-
+       <?php 
+       unset($_SESSION['login_errors']); // Clear the 'errors' session variable
+       endif; ?>
+      
         <input type="text" placeholder="Email" required name="email">
         <input type="password" placeholder="Password" required class="form" name="password">
         <br>

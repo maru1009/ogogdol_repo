@@ -30,8 +30,9 @@ if(isset($_SESSION['id']))
             <p class="register_errors"><?php echo $error ?></p>
         <?php endforeach; ?>
        </div>
-       <!-- $_SESSION['errors']=null; -->
-      <?php endif; ?>
+     
+       <?php 
+    unset($_SESSION['errors']); // Clear the 'errors' session variable endif; 
 
         <div class="names">
           <input type="text" placeholder="First name" required name="uname">

@@ -18,7 +18,10 @@
         <?php endforeach; ?>
         </div>
        <!-- $_SESSION['errors']=null; -->
-       <?php endif; ?>
+       <?php 
+       unset($_SESSION['forgot_errors']); // Clear the 'errors' session variable
+       endif; ?>
+       
         <input type="text" placeholder="Email" required name="email" class="email-input">
         <div class="button">
             <a href="javascript:history.back()">Back</a>
