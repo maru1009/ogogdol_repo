@@ -34,7 +34,7 @@ if (strtotime($user["reset_token_expires_at"]) <= time()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Reset</title>
-    <link rel="stylesheet" href="css/forgot.css">
+    <link rel="stylesheet" href="css/reset_password.css">
 </head>
 <body>
     <?php require_once 'assets/header.php'; ?>

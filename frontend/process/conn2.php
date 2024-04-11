@@ -3,7 +3,7 @@
 $host = "localhost:3306";
 $dbname = "ecommerce";
 $username = "root";
-$password = "G@nb0617 ";
+$password = "Y4dagd62%@d32";
 
 $mysqli = new mysqli(hostname: $host,
                      username: $username,

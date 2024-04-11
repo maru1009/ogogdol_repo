@@ -6,7 +6,7 @@
     }
     function validate_email($data)
     {
-        return preg_match("/^[a-z0-9!#$%&'*+\/=?^{|}~-]+(?:\\.[a-z0-9!#$%&'*+\\/=?^_{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/",$data);
+        return filter_var($data, FILTER_VALIDATE_EMAIL);
     }
     function check_url($url)
     {

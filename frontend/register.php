@@ -32,8 +32,9 @@ if(isset($_SESSION['id']))
        </div>
      
        <?php 
-    unset($_SESSION['errors']); // Clear the 'errors' session variable endif; 
-
+        unset($_SESSION['errors']); // Clear the 'errors' session variable endif; 
+        endif;
+      ?>
         <div class="names">
           <input type="text" placeholder="First name" required name="uname">
           <input type="text" placeholder="Last name" required name="lname">
@@ -49,6 +50,7 @@ if(isset($_SESSION['id']))
       </form>
     </div>
   </div>
+
 
   <!-- Footer -->
   <?php require_once 'assets/footer.php'?>
